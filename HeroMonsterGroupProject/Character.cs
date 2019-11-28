@@ -23,7 +23,11 @@ namespace HeroMonsterGroupProject
 
         public int Attack(Dice dice)
         {
-            return dice.Roll(this.DamageMaximum);
+            //Sets the sides of the dice
+            dice.Sides = 40;
+            this.DamageMaximum = dice.Roll(dice.Sides);
+
+            return this.DamageMaximum;
         }
 
         public void Defend(int damage)
@@ -31,5 +35,10 @@ namespace HeroMonsterGroupProject
             this.Health -= damage;
         }
 
+        public int addDamage()
+        {
+            DamageMaximum += 5;
+            return DamageMaximum;
+        }
     }
 }
