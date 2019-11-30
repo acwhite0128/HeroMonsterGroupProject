@@ -12,7 +12,7 @@ namespace HeroMonsterGroupProject
         {
             //Created new objects
             Character hero = new Character("Kevin", 100, 20, false);
-            Character monster = new Character("Gourg", 150, 15, true);
+            Character monster = new Character("Gourg", 100, 15, true);
             Dice dice = new Dice();
 
 
@@ -66,12 +66,12 @@ namespace HeroMonsterGroupProject
 
         public static void displayResult(Character opponent1, Character opponent2)
         {
-            if (opponent1.Health <= 0 && opponent2.Health > 0)
-                Console.WriteLine("{0} died, {1} wins!", opponent1.Name, opponent2.Name);
-
-            else
+            if (opponent1.Health <= 0 && opponent2.Health <= 0)
                 Console.WriteLine("Both {0} and {1} died.", opponent1.Name, opponent2.Name);
-
+            else if (opponent1.Health <= 0)
+                Console.WriteLine("{0} died, {1} wins!", opponent1.Name, opponent2.Name);
+            else
+                Console.WriteLine("{0} died, {1} wins!", opponent2.Name, opponent1.Name);
         }
     }
 }
